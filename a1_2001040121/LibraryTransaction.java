@@ -1,3 +1,7 @@
+package a1_2001040121;
+
+import a1_2001040121.Book;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -88,6 +92,6 @@ public class LibraryTransaction {
 
     public String getDescription() {
         SimpleDateFormat sdf = new SimpleDateFormat("EEE, MMM dd YYYY", Locale.ENGLISH);
-        return String.format("Transaction Details:\n\tPatron ID: %s\n\tBook ISBN: %s\n\tCheckout Date: %s\n\tDue Date: %s\n\tReturn Date: %s\n\tFine Amount: %,.2f", patron.getPatronID(), book.getISBN(), sdf.format(checkOutDate), sdf.format(dueDate), sdf.format(returnDate), fineAmount);
+        return String.format("Transaction Details:\n\tPatron ID: %s\n\ta1_2001040121.Book ISBN: %s\n\tCheckout Date: %s\n\tDue Date: %s\n\tReturn Date: %s\n\tFine Amount: %,.2f", patron.getPatronID(), book.getISBN(), sdf.format(checkOutDate), sdf.format(dueDate), sdf.format(returnDate), fineAmount);
     }
 }

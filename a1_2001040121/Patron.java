@@ -11,7 +11,7 @@ public class Patron {
     private String email;
     private String phoneNum;
     private PatronType type;
-    private static int currentID = 0;
+    private static int currentID = 1;
     private String generatePatronID() {
         String result = "P";
         if (currentID < 10) {

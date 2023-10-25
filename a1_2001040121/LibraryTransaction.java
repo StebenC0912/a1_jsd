@@ -22,7 +22,6 @@ public class LibraryTransaction {
         this.checkOutDate = checkOutDate;
         this.dueDate = dueDate;
         this.returnDate = returnDate;
-        this.fineAmount = calculateFine();
     }
 
     public LibraryTransaction(Patron patron, Book book, Date checkOutDate, Date dueDate) {

@@ -20,11 +20,12 @@ public class Book {
         int i = 0;
         for (Genre genre : Genre.values()) {
             if (genre == this.genre) {
-                ISBN += Integer.toString(i + 1);
+                if (i < 10) ISBN += "-0"+ Integer.toString(i + 1);
+                else ISBN += "-" + Integer.toString(i + 1);
             }
             i++;
         }
-        ISBN += "-"  + "-" + this.publicationYear;
+        ISBN += "-" + this.publicationYear;
         this.ISBN = ISBN;
     }
 
@@ -63,6 +64,30 @@ public class Book {
 
     public int getNumCopiesAvailable() {
         return NumCopiesAvailable;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public void setPublicationYear(String publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public void setNumCopiesAvailable(int numCopiesAvailable) {
+        NumCopiesAvailable = numCopiesAvailable;
     }
 
     @Override

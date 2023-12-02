@@ -31,6 +31,18 @@ public class LibraryTransaction {
         this.dueDate = dueDate;
     }
 
+    @Override
+    public String toString() {
+        return "LibraryTransaction{" +
+                "patron=" + patron +
+                ", book=" + book +
+                ", checkOutDate=" + checkOutDate +
+                ", dueDate=" + dueDate +
+                ", returnDate=" + returnDate +
+                ", fineAmount=" + fineAmount +
+                '}';
+    }
+
     public double calculateFine() throws ParseException {
         if (returnDate.before(dueDate)) return 0;
         long diff = TimeUnit.DAYS.convert(Math.abs(returnDate.getTime() - dueDate.getTime()), TimeUnit.MILLISECONDS);

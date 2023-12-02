@@ -81,4 +81,16 @@ public class Patron {
     public void setType(PatronType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Patron{" +
+                "PatronID='" + PatronID + '\'' +
+                ", name='" + name + '\'' +
+                ", DOB=" + DOB +
+                ", email='" + email + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

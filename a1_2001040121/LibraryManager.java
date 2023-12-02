@@ -65,6 +65,9 @@ public class LibraryManager {
         List<LibraryTransaction> result = new ArrayList<>();
         for (LibraryTransaction transaction : transactions) {
             if (transaction.getReturnDate() == null && transaction.getDueDate().before(new DateUtils().getCurrentDate())) {
+                transaction.setReturnDate(new DateUtils().getCurrentDate());
+                transaction.setFineAmount(transaction.calculateFine());
+                transaction.setReturnDate(null);
                 result.add(transaction);
             }
         }

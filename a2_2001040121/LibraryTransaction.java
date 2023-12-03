@@ -1,8 +1,5 @@
-package a1_2001040121;
+package a2_2001040121;
 
-import a1_2001040121.Book;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -16,7 +13,7 @@ public class LibraryTransaction {
     private Date returnDate;
     private double fineAmount;
 
-    public LibraryTransaction(Patron patron, Book book, Date checkOutDate, Date dueDate, Date returnDate) throws ParseException {
+    public LibraryTransaction(Patron patron, Book book, Date checkOutDate, Date dueDate, Date returnDate) {
         this.patron = patron;
         this.book = book;
         this.checkOutDate = checkOutDate;
@@ -43,7 +40,7 @@ public class LibraryTransaction {
                 '}';
     }
 
-    public double calculateFine() throws ParseException {
+    public double calculateFine() {
         if (returnDate.before(dueDate)) return 0;
         long diff = TimeUnit.DAYS.convert(Math.abs(returnDate.getTime() - dueDate.getTime()), TimeUnit.MILLISECONDS);
         double price = 0;
@@ -71,6 +68,7 @@ public class LibraryTransaction {
 
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
+        this.fineAmount = calculateFine();
     }
 
     public void setCheckOutDate(Date checkOutDate) {

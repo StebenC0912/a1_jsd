@@ -1,4 +1,4 @@
-package a1_2001040121;
+package a2_2001040121;
 
 import common.DateUtils;
 import common.PatronType;
@@ -26,7 +26,7 @@ public class LibraryManager {
         return result;
     }
 
-    public void checkOutBook(Patron patron, Book book, Date checkoutDate, Date dueDate) throws ParseException {
+    public String checkOutBook(Patron patron, Book book, Date checkoutDate, Date dueDate) {
         // check if the patron has already checked out 5 books
         int count = 0;
         if (transactions != null) {
@@ -38,19 +38,21 @@ public class LibraryManager {
         }
         if (patron.getType() == PatronType.PREMIUM) {
             if (count >= 5) {
-                throw new ParseException("Patron has already checked out 5 books", 0);
+                return "Patron has already checked out 5 books";
+
             } else {
                 transactions.add(new LibraryTransaction(patron, book, checkoutDate, dueDate, null));
                 book.setNumCopiesAvailable(book.getNumCopiesAvailable() - 1);
             }
         } else {
             if (count >= 3) {
-                throw new ParseException("Patron has already checked out 3 books", 0);
+                return "Patron has already checked out 3 books";
             } else {
                 transactions.add(new LibraryTransaction(patron, book, checkoutDate, dueDate, null));
                 book.setNumCopiesAvailable(book.getNumCopiesAvailable() - 1);
             }
         }
+        return "Book checked out successfully";
     }
 
     public void returnBook(LibraryTransaction transaction, Date returnDate) throws ParseException {

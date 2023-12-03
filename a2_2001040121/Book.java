@@ -1,4 +1,4 @@
-package a1_2001040121;
+package a2_2001040121;
 
 import common.Genre;
 
@@ -27,6 +27,15 @@ public class Book {
         }
         ISBN += "-" + this.publicationYear;
         this.ISBN = ISBN;
+    }
+
+    public Book(String ISBN, String title, String author, Genre genre, String publicationYear, int numCopiesAvailable) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.publicationYear = publicationYear;
+        NumCopiesAvailable = numCopiesAvailable;
     }
 
     public Book(String title, String author, Genre genre, String publicationYear, int available) {

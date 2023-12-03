@@ -1,4 +1,4 @@
-package a1_2001040121;
+package a2_2001040121;
 
 import common.PatronType;
 
@@ -24,7 +24,25 @@ public class Patron {
         currentID++;
         return result;
     }
-
+    private String generatePatronID(int id) {
+        String result = "P";
+        if (id < 10) {
+            result = result.concat("00").concat(Integer.toString(id));
+        } else if (id < 99) {
+            result = result.concat("0").concat(Integer.toString(id));
+        } else {
+            result = result.concat(Integer.toString(id));
+        }
+        return result;
+    }
+    public Patron(int id,String name, Date DOB, String email, String phoneNum, PatronType type) {
+        this.PatronID = generatePatronID(id);
+        this.name = name;
+        this.DOB = DOB;
+        this.email = email;
+        this.phoneNum = phoneNum;
+        this.type = type;
+    }
     public Patron(String name, Date DOB, String email, String phoneNum, PatronType type) {
         this.name = name;
         this.DOB = DOB;

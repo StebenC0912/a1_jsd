@@ -1,4 +1,6 @@
-package a1_2001040121;
+package a2_2001040121;
+
+import GUI.LibrarySystemGUI;
 
 public class LibraryManProg {
 
